@@ -91,13 +91,12 @@ export default function Checkout() {
   }, [transaction])
 
   // Check every 0.5s if the transaction is completed
-  // Check every 0.5s if the transaction is completed
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
         // Check if there is any transaction for the reference
         const signatureInfo = await findReference(connection, reference);
-        router.push('/confirmed')
+        console.log('They paid!!!')
       } catch (e) {
         if (e instanceof FindReferenceError) {
           // No transaction found yet, ignore this error
